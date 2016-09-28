@@ -13,7 +13,7 @@ box: hirocaster/elixir-dev
 services:
   - id: mysql
     env:
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
       MYSQL_USER: root
       MYSQL_PASSWORD:
       MYSQL_DATABASE: example_test
@@ -29,6 +29,7 @@ build:
         name: set env vars
         code: |
           export MIX_ENV=test
+          export PATH=/usr/bin:$PATH
 
     - script:
         name: get and compile dependencies
