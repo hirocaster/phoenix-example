@@ -15,6 +15,6 @@ config :example, Example.Repo,
   username: "root",
   password: "",
   database: "example_test",
-  hostname: System.get_env("MYSQL_PORT_3306_TCP_ADDR"),
-  port: System.get_env("MYSQL_PORT_3306_TCP_PORT"),
+  hostname: System.get_env("MYSQL_PORT_3306_TCP_ADDR") || "localhost",
+  port: System.get_env("MYSQL_PORT_3306_TCP_PORT") || 3306,
   pool: Ecto.Adapters.SQL.Sandbox
